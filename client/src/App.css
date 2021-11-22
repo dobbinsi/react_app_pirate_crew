@@ -1,0 +1,105 @@
+.wrapper {
+  width: 980px;
+  margin: auto;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #783f04;
+  color: white;
+  border: 5px solid black;
+  border-bottom: none;
+}
+
+.body {
+  background-color: orange;
+  border: 5px solid black;
+  padding: 20px;
+}
+
+.content {
+  padding: 20px;
+  background-color: whitesmoke;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 5px solid black;
+}
+
+img {
+  border: 5px solid black;
+}
+
+.details {
+  padding: 20px;
+  margin-left: 90px;
+}
+
+.main-buttons {
+  background-color: blue;
+  color: white;
+  padding: 10px 24px;
+  font-weight: bold;
+}
+
+span {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.form-control {
+  display: inline-block;
+  width: 190px;
+  text-align: right;
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
+
+.plank-button {
+  background-color: red;
+  color: white;
+  padding: 10px 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: orange;
+  border: 5px solid black;
+}
+
+.create {
+  display: flex;
+  justify-content: center;
+}
+
+.create-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 24px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.about {
+  margin-right: auto;
+  margin-left: auto;
+}
