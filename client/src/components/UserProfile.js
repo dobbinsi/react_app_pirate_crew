@@ -5,6 +5,7 @@ import { Link } from "@reach/router";
 
 const UserProfile = (props) => {
     const [userPirateList, setUserPirateList] = useState([]);
+    const [oneUser, setOneUser] = useState({});
     const { id } = props;
 
 
@@ -13,6 +14,16 @@ const UserProfile = (props) => {
             .then((res) => {
                 console.log(res.data);
                 setUserPirateList(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/users/${id}`)
+            .then((res) => {
+                console.log(res.data);
+                setOneUser(res.data);
             })
             .catch((err) => {
                 console.log(err);
@@ -35,7 +46,7 @@ const UserProfile = (props) => {
     return (
         <div>
             <div class="header">
-                <h1>Pirate Crew</h1>
+                <h1>{oneUser.username}'s Crew</h1>
                 <button class="main-buttons"><Link to={"/pirates/new"}>Add Pirate</Link></button>
                 <button class="main-buttons"><Link to={"/pirates/home"}>Crew Board</Link></button>
             </div>
