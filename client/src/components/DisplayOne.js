@@ -19,7 +19,7 @@ const DisplayOne = (props) => {
         <div>
             <div class="header">
                 <h1>{pirate.name}</h1>
-                <button class="main-buttons"><Link to={"/"}>Crew Board</Link></button>
+                <button class="main-buttons"><Link to={"/pirates/home"}>Crew Board</Link></button>
             </div>
             <div class="body">
                 <div class="content">

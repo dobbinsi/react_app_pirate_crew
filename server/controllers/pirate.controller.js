@@ -1,8 +1,10 @@
 const Pirate = require("../models/pirate.model");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
     findAllPirates: (req, res) => {
         Pirate.find({})
+            .populate("createdBy", "username _id")
             .then((allPirates) => {
                 console.log(allPirates);
                 res.json(allPirates)
@@ -10,6 +12,18 @@ module.exports = {
             .catch((err) => {
                 console.log("findAllPirates failed...");
                 res.json({ message: "Something went wrong in findAllPirates", error: err });
+            })
+    },
+
+    findAllPiratesByUser: (req, res) => {
+        Pirate.find({ createdBy: req.params.userId })
+            .then((allUserPirates) => {
+                console.log(allUserPirates);
+                res.json(allUserPirates);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(400).json(err);
             })
     },
 
@@ -26,7 +40,12 @@ module.exports = {
     },
 
     createNewPirate: (req, res) => {
-        Pirate.create(req.body)
+        const newPirateObj = new Pirate(req.body);
+        const decodedJWT = jwt.decode(req.cookies.usertoken, {
+            complete: true
+        })
+        newPirateObj.createdBy = decodedJWT.payload.id;
+        newPirateObj.save()
             .then((newPirate) => {
                 console.log(newPirate);
                 res.json(newPirate)
@@ -36,7 +55,7 @@ module.exports = {
                 res.status(400).json(err);
             })
     },
-    
+
     updatePirate: (req, res) => {
         Pirate.findOneAndUpdate(
             { _id: req.params.id },
@@ -52,7 +71,7 @@ module.exports = {
                 res.status(400).json(err);
             })
     },
-    
+
     deletePirate: (req, res) => {
         Pirate.deleteOne({ _id: req.params.id })
             .then((deletedPirate) => {

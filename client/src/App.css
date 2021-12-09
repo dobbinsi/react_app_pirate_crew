@@ -69,6 +69,15 @@ span {
   margin-left: 10px;
 }
 
+.maker-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
 a {
   text-decoration: none;
   color: white;

@@ -40,6 +40,10 @@ const pirateSchema = new mongoose.Schema({
         type: Boolean,
         required:[true, "Simple question mate - yes or no?"]
     },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
 }, {timestamps: true})
 
 const Pirate = mongoose.model("Pirate", pirateSchema);

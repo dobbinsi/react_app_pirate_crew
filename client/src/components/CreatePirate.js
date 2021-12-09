@@ -24,10 +24,10 @@ const CreatePirate = (props) => {
                 pegLeg,
                 eyePatch,
                 hookHand
-            })
+            }, {withCredentials: true},)
             .then((res) => {
                 console.log(res.data);
-                navigate("/");
+                navigate("/pirates/home");
             })
             .catch((err) => {
                 console.log(err);
@@ -39,7 +39,7 @@ const CreatePirate = (props) => {
         <div>
             <div class="header">
                 <h1>Add Pirate</h1>
-                <button class="main-buttons"><Link to={"/"}>Crew Board</Link></button>
+                <button class="main-buttons"><Link to={"/pirates/home"}>Crew Board</Link></button>
             </div>
             <form onSubmit={createSubmitHandler}>
                 <div>
