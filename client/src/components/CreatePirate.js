@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link, navigate } from "@reach/router";
+// import { Link, navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
+import Header from "./Header";
+import Navbar from "./Navbar";
+
 
 const CreatePirate = (props) => {
     const [errors, setErrors] = useState({});
@@ -12,6 +16,7 @@ const CreatePirate = (props) => {
     const [pegLeg, setPegLeg] = useState(true);
     const [eyePatch, setEyePatch] = useState(true);
     const [hookHand, setHookHand] = useState(true);
+    const navigate = useNavigate();
     const createSubmitHandler = (e) => {
         e.preventDefault();
         axios.post(`http://localhost:8000/api/pirates`,
@@ -37,9 +42,10 @@ const CreatePirate = (props) => {
 
     return (
         <div>
+            <Navbar/>
             <div class="header">
                 <h1>Add Pirate</h1>
-                <button class="main-buttons"><Link to={"/pirates/home"}>Crew Board</Link></button>
+                {/* <button class="main-buttons"><Link to={"/pirates/home"}>Crew Board</Link></button> */}
             </div>
             <form onSubmit={createSubmitHandler}>
                 <div>

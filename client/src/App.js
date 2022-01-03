@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Router } from "@reach/router";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DisplayAll from "./components/DisplayAll";
 import CreatePirate from "./components/CreatePirate";
 import DisplayOne from "./components/DisplayOne";
@@ -11,11 +11,13 @@ function App() {
   return (
     <div className="wrapper">
       <Router>
-        <LogReg path="/" />
-        <DisplayAll path="/pirates/home" />
-        <CreatePirate path="/pirates/new" />
-        <UserProfile path="/user/profile/:id" />
-        <DisplayOne path="/pirates/:id" />
+        <Routes>
+          <Route exact path="/" element={<LogReg />}></Route>
+          <Route exact path="/pirates/home" element={<DisplayAll />}></Route>
+          <Route exact path="/pirates/new" element={<CreatePirate />}></Route>
+          <Route exact path="/pirates/:id" element={<DisplayOne />}></Route>
+          <Route exact path="/user/profile/:userId" element={<UserProfile />}></Route>
+        </Routes>
       </Router>
     </div>
   );

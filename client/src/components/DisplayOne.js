@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "@reach/router";
+// import { Link } from "@reach/router";
+import { useParams } from "react-router-dom";
+import { NavLink as Link } from "react-router-dom";
+import Header from "./Header";
+import Navbar from "./Navbar";
 
-const DisplayOne = (props) => {
-    const { id } = props;
+
+const DisplayOne = () => {
+    const { id } = useParams();
+
     const [pirate, setPirate] = useState({});
     useEffect(() => {
         axios.get(`http://localhost:8000/api/pirates/${id}`)
@@ -17,6 +23,7 @@ const DisplayOne = (props) => {
 
     return (
         <div>
+            <Navbar/>
             <div class="header">
                 <h1>{pirate.name}</h1>
                 <button class="main-buttons"><Link to={"/pirates/home"}>Crew Board</Link></button>

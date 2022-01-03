@@ -112,3 +112,12 @@ form {
   margin-right: auto;
   margin-left: auto;
 }
+
+.hat-logo {
+  height: 30px;
+  width: 50px;
+}
+
+.login-test {
+  width: 95vw;
+}

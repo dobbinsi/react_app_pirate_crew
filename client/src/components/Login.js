@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { navigate } from "@reach/router";
+// import { navigate } from "@reach/router";
 // import {GlobalContext} from '../context/MyContext';
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
     // const { userId, setUserId } = useContext(GlobalContext);
     const login = (event) => {
         event.preventDefault();
@@ -30,7 +32,7 @@ const Login = (props) => {
     };
 
     return (
-        <div>
+        <div className="login-test">
             <h1>Login</h1>
             <span>{errorMessage ? errorMessage : ""}</span>
             <form onSubmit={login}>

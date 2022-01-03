@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { navigate } from "@reach/router";
+// import { navigate } from "@reach/router";
 
 const Register = (props) => {
     const [confirmReg, setConfirmReg] = useState("");
